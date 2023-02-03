@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html lang="em">
-  <head>
-  </head>
-  <body>
-    <div class="center">
-      <h3>Hello</h3>
-      <figure>
-      <button><img src="https://i.pinimg.com/236x/cc/d9/90/ccd99034d35695acaa747cdf5e88b6e0.jpg"></button>
-        <figcaption>Click Me!</figcaption>
-      </figure>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goof Gallery</title>
+    <style>
+      .menu {
+        text-align: center;
+        margin: auto;
+      }
+      body {
+        background-color: cyan;
+      }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h1>Goof Gallery</h1>
+        <img id="randomimg" src="" height=500px width=500px>
+        <figure>
+            <figcaption><button onclick="newimg();">Click Me For More Goof!</button></figcaption>
+        </figure>
     </div>
-  </body>
+    <script>
+        let images = ["https://preview.redd.it/goofy-ahh-unclegeorge-v0-8jc998p6dvv81.jpg?width=640&crop=smart&auto=webp&s=d8df27ae4d587b44eb0b9a70032a4131aa9a9ea9", "https://us-tuna-sounds-images.voicemod.net/ee704167-f2d1-40f3-93cd-9390db18f79d-1653930177387.jpg", "https://i.ytimg.com/vi/jVRQOGOsJ84/maxresdefault.jpg", "https://i.scdn.co/image/ab67616d0000b27302442be259284edc86c701a5", "https://yt3.googleusercontent.com/vnfNaQJQXztEmbziXJ1REXo3avorm9D8T3SUsFB4lg9ewWy9IgoTHntFyeIF0eW6CyqlZ8taUQ=s900-c-k-c0x00ffffff-no-rj", "https://media.tenor.com/33yJfrazv_kAAAAC/my-goofy-ahh-uncle.gif", "https://i.imgflip.com/6dsqdb.jpg"];
+        function newimg() {
+            let randomimg = Math.floor(Math.random() * images.length);
+            console.log(images[randomimg]);
+            document.getElementById("randomimg").src = images[randomimg];
+        }
+        newimg();
+    </script>
+</body>
 </html>
