@@ -11,6 +11,14 @@
       body {
         background-color: cyan;
       }
+      .foot {
+        margin-top: 70px;
+        margin-bottom: 3px;
+      }
+      #outof {
+        margin-top: 5px;
+        font-size: 30px;
+      }
     </style>
 </head>
 <body>
@@ -18,15 +26,26 @@
         <h1>Goof Gallery</h1>
         <img id="randomimg" src="" height=500px width=500px>
         <figure>
-            <figcaption><button onclick="newimg();">Click Me For More Goof!</button></figcaption>
+            <figcaption><button onclick="newimg();">Click Me For More Goof!</button><p id="outof"></p></figcaption>
         </figure>
+        <footer class="foot">
+            <p>Goof Goof Inc.</p>
+            <p>Made Using ScrimblOS</p>
+        </footer>
     </div>
     <script>
         let images = ["https://preview.redd.it/goofy-ahh-unclegeorge-v0-8jc998p6dvv81.jpg?width=640&crop=smart&auto=webp&s=d8df27ae4d587b44eb0b9a70032a4131aa9a9ea9", "https://us-tuna-sounds-images.voicemod.net/ee704167-f2d1-40f3-93cd-9390db18f79d-1653930177387.jpg", "https://i.ytimg.com/vi/jVRQOGOsJ84/maxresdefault.jpg", "https://i.scdn.co/image/ab67616d0000b27302442be259284edc86c701a5", "https://yt3.googleusercontent.com/vnfNaQJQXztEmbziXJ1REXo3avorm9D8T3SUsFB4lg9ewWy9IgoTHntFyeIF0eW6CyqlZ8taUQ=s900-c-k-c0x00ffffff-no-rj", "https://media.tenor.com/33yJfrazv_kAAAAC/my-goofy-ahh-uncle.gif", "https://i.imgflip.com/6dsqdb.jpg"];
+        let i = Math.floor(Math.random() * images.length-1);
         function newimg() {
-            let randomimg = Math.floor(Math.random() * images.length);
-            console.log(images[randomimg]);
-            document.getElementById("randomimg").src = images[randomimg];
+            if(i == images.length-1) {
+                i = 0;
+            }
+            else {
+                i += 1;
+            }
+            console.log(i);
+            document.getElementById("randomimg").src = images[i];
+            document.getElementById("outof").innerHTML = i+1 + "/" + images.length;
         }
         newimg();
     </script>
